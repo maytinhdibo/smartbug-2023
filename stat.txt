@@ -1,0 +1,10 @@
+Old: 2.263.098
+New: 195.127.290
+
+SELECT address
+FROM (
+  SELECT to_address AS address FROM `bigquery-public-data.crypto_ethereum.transactions` 
+  UNION ALL
+  SELECT from_address AS address FROM `bigquery-public-data.crypto_ethereum.transactions`
+) AS combined_names
+GROUP BY address
